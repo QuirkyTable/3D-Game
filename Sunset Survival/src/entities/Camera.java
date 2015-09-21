@@ -1,6 +1,8 @@
 package entities;
 
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.Display;
 import org.lwjgl.util.vector.Vector3f;
 
 public class Camera {
@@ -25,6 +27,7 @@ public class Camera {
 		if(Keyboard.isKeyDown(Keyboard.KEY_A)) {
 			position.x -= 0.02f;
 		}
+		
 	}
 
 	public Vector3f getPosition() {

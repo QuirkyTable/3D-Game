@@ -11,7 +11,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="jar/slick-util.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Sunset survival"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Sunset survival/native/Slick_utils"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>

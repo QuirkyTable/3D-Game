@@ -1,6 +1,7 @@
 package engineTester;
 
 import java.util.List;
+import java.util.Random;
 
 import models.RawModel;
 import models.TexturedModel;
@@ -28,15 +29,22 @@ public class MainGameLoop {
 		
 		Loader loader = new Loader();
 		
-		RawModel model = OBJLoader.loadObjModel("dragon", loader);
-		
-		TexturedModel staticModel = new TexturedModel(model, new ModelTexture(loader.loadTexture("white")));
+		// Load the rawModel
+		RawModel model = OBJLoader.loadObjModel("fern", loader);
+		// Load the texturedModel
+		TexturedModel staticModel = new TexturedModel(model, new ModelTexture(loader.loadTexture("fern")));
+		// Set some details about the texture
 		ModelTexture texture = staticModel.getTexture();
-		texture.setShineDamper(15);
-		texture.setReflectivity(1f);
-		
-		
-		Entity entity = new Entity(staticModel, new Vector3f(0, 0, -50), 0, 0, 0, 1);
+		texture.setShineDamper(20);
+		texture.setReflectivity(0.5f);
+		// Create an array of ferns
+		Entity[] ferns = new Entity[200];
+		Random random = new Random();
+		for(int i = 0; i < ferns.length; i++) {
+			int locX = random.nextInt(800);
+			int locZ = random.nextInt(800);
+			ferns[i] = new Entity(staticModel, new Vector3f(locX, 0, locZ), 0, 0, 0, 1);
+		}
 		
 		Light light = new Light(new Vector3f(0, 0, -20), new Vector3f(1, 1, 1));
 		
@@ -51,7 +59,9 @@ public class MainGameLoop {
 			camera.move();
 			renderer.processTerrain(terrain);
 			renderer.processTerrain(terrain2);
-			renderer.processEntity(entity);
+			for(int i = 0; i < ferns.length; i++) {
+				renderer.processEntity(ferns[i]);
+			}
 			renderer.render(light, camera);
 			DisplayManager.updateDisplay();
 			

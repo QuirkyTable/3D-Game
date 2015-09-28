@@ -1,19 +1,19 @@
 package textures;
 
 public class ModelTexture {
-	
+
 	private int textureID;
-	
+
 	private float shineDamper = 1;
 	private float reflectivity = 0;
-	
+
 	private boolean hasTransparency = false;
 	private boolean useFakeLighting = false;
-	
+
 	public ModelTexture(int id) {
 		this.textureID = id;
 	}
-	
+
 	public int getID() {
 		return textureID;
 	}
@@ -41,8 +41,8 @@ public class ModelTexture {
 	public void setHasTransparency(boolean hasTransparency) {
 		this.hasTransparency = hasTransparency;
 	}
-	
-		public boolean isUseFakeLighting() {
+
+	public boolean isUseFakeLighting() {
 		return useFakeLighting;
 	}
 

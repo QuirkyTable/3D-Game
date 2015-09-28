@@ -20,6 +20,8 @@ import org.newdawn.slick.opengl.TextureLoader;
 
 public class Loader {
 	
+	private static final String RES_LOC = "res/textures/";
+	
 	private List<Integer> vaos = new ArrayList<Integer>();
 	private List<Integer> vbos = new ArrayList<Integer>();
 	private List<Integer> textures = new ArrayList<Integer>();
@@ -38,7 +40,7 @@ public class Loader {
 		Texture texture = null;
 		
 		try {
-			texture = TextureLoader.getTexture("PNG", new FileInputStream("res/"+fileName+".png"));
+			texture = TextureLoader.getTexture("PNG", new FileInputStream(RES_LOC + fileName + ".png"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
